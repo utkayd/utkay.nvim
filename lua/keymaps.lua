@@ -34,6 +34,15 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+--Save with Control+s
+vim.keymap.set('n', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+vim.keymap.set('x', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+vim.keymap.set('i', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+vim.keymap.set('s', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+
+--Quit with leader qq
+vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
