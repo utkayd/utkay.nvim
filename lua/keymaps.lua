@@ -52,6 +52,7 @@ vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 
 --Select All Text
 vim.keymap.set('n', 'vig', 'ggVG', { desc = 'Select All Text' })
+vim.keymap.set('n', '<leader>l', '<cmd>Lazy<Cr>', { desc = 'Open Lazy View' })
 
 vim.keymap.set('n', '<leader>bd', function()
   require('bufdelete').bufdelete(0, true)
