@@ -16,6 +16,15 @@ return {
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
+          goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
+          goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
+          goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
+        },
+      },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -23,6 +32,59 @@ return {
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    event = 'VeryLazy',
+    enabled = true,
+    config = function()
+      -- Set up nvim-treesitter textobjects if nvim-treesitter is loaded
+      local treesitter_loaded, treesitter = pcall(require, 'nvim-treesitter.configs')
+      if treesitter_loaded then
+        treesitter.setup {
+          textobjects = {
+            select = {
+              enable = true,
+              -- You can define your keymaps for textobject selection here
+              keymaps = {
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner',
+              },
+            },
+            move = {
+              enable = true,
+              set_jumps = true,
+              goto_next_start = { [']m'] = '@function.outer', [']M'] = '@class.outer' },
+              goto_next_end = { [']M'] = '@function.outer', [']C'] = '@class.outer' },
+              goto_previous_start = { ['[m'] = '@function.outer', ['[M'] = '@class.outer' },
+              goto_previous_end = { ['[M'] = '@function.outer', ['[C'] = '@class.outer' },
+            },
+          },
+        }
+      end
+
+      -- Override Treesitter textobjects in diff mode
+      local move = require 'nvim-treesitter.textobjects.move'
+      local configs = require 'nvim-treesitter.configs'
+      for name, fn in pairs(move) do
+        if name:find 'goto' == 1 then
+          move[name] = function(query, ...)
+            if vim.wo.diff then
+              local config = configs.get_module('textobjects.move')[name]
+              for key, query_str in pairs(config or {}) do
+                if query == query_str and key:find '[%]%[][cC]' then
+                  vim.cmd('normal! ' .. key)
+                  return
+                end
+              end
+            end
+            return fn(query, ...)
+          end
+        end
+      end
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
