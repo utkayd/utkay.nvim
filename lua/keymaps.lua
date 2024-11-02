@@ -53,6 +53,9 @@ vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 --Select All Text
 vim.keymap.set('n', 'vig', 'ggVG', { desc = 'Select All Text' })
 
+vim.keymap.set('n', '<leader>bd', function()
+  require('bufdelete').bufdelete(0, true)
+end, { desc = 'Delete Buffer' })
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
