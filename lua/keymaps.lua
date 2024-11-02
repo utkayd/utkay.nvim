@@ -43,6 +43,9 @@ vim.keymap.set('s', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 --Quit with leader qq
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 
+--Select All Text
+vim.keymap.set('n', 'vig', 'ggVG', { desc = 'Select All Text' })
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
