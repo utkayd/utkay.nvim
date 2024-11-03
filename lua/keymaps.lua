@@ -54,6 +54,11 @@ vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 vim.keymap.set('n', 'vig', 'ggVG', { desc = 'Select All Text' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<Cr>', { desc = 'Open Lazy View' })
 
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- move line up(n)
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==') -- move line down(n)
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv") -- move line up(v)
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- move line down(v)
+
 --Fzf-Lua-Specific Bindings
 vim.keymap.set('n', '<leader>sg', function()
   require('fzf-lua').live_grep_glob { resume = true }
