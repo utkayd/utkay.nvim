@@ -14,7 +14,7 @@ return {
   opts = function()
     local icons = {
       diagnostics = { Error = '', Warn = '', Info = '', Hint = '' },
-      git = { added = '', modified = '柳', removed = '' },
+      git = { added = '', modified = '', removed = '' },
     }
 
     vim.o.laststatus = 3 -- Set to 3 to enable global statusline across all buffers
