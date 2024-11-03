@@ -72,6 +72,9 @@ end, { desc = '[S]earch for [F]iles' })
 vim.keymap.set('n', '<leader>sm', function()
   require('fzf-lua').marks()
 end, { desc = '[S]earch for [M]arks' })
+vim.keymap.set('n', '<leader>sk', function()
+  require('fzf-lua').keymaps()
+end, { desc = '[S]earch [K]eymaps' })
 
 -- Map to <leader>uC
 vim.keymap.set('n', '<leader>uC', function()
