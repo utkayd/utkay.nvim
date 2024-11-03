@@ -15,11 +15,11 @@ return {
 
       dashboard.section.header.val = vim.split(logo, '\n')
       dashboard.section.buttons.val = {
-        dashboard.button('f', ' ' .. ' Find file', ':Telescope find_files<cr>'),
+        dashboard.button('f', ' ' .. ' Find file', ':FzfLua files<cr>'),
         dashboard.button('n', ' ' .. ' New file', [[<cmd> ene <BAR> startinsert <cr>]]),
-        dashboard.button('r', ' ' .. ' Recent files', ':Telescope oldfiles<cr>'),
-        dashboard.button('g', ' ' .. ' Find text', ':Telescope live_grep<cr>'),
-        dashboard.button('c', ' ' .. ' Config', ':Telescope find_files cwd=~/.config/nvim<cr>'),
+        dashboard.button('r', ' ' .. ' Recent files', ':FzfLua oldfiles<cr>'),
+        dashboard.button('g', ' ' .. ' Find text', ':FzfLua live_grep<cr>'),
+        dashboard.button('c', ' ' .. ' Config', ':FzfLua files cwd=~/.config/nvim<cr>'),
         dashboard.button('s', ' ' .. ' Restore Session', [[<cmd> lua require("persistence").load() <cr>]]),
         dashboard.button('q', ' ' .. ' Quit', '<cmd> qa <cr>'),
       }
