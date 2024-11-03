@@ -54,6 +54,25 @@ vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 vim.keymap.set('n', 'vig', 'ggVG', { desc = 'Select All Text' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<Cr>', { desc = 'Open Lazy View' })
 
+--Fzf-Lua-Specific Bindings
+vim.keymap.set('n', '<leader>sg', function()
+  require('fzf-lua').live_grep_glob { resume = true }
+end, { desc = '[S]earch with [G]rep Glob' })
+vim.keymap.set('n', '<leader><leader>', function()
+  require('fzf-lua').files { resume = true }
+end, { desc = '[S]earch for [F]iles' })
+vim.keymap.set('n', '<leader>sf', function()
+  require('fzf-lua').files { resume = true }
+end, { desc = '[S]earch for [F]iles' })
+vim.keymap.set('n', '<leader>sm', function()
+  require('fzf-lua').marks()
+end, { desc = '[S]earch for [M]arks' })
+
+-- Map to <leader>uC
+vim.keymap.set('n', '<leader>uC', function()
+  require('fzf-lua').colorschemes()
+end, { desc = 'Colorscheme Picker' })
+
 vim.keymap.set('n', '<leader>bd', function()
   require('bufdelete').bufdelete(0, true)
 end, { desc = 'Delete Buffer' })
