@@ -24,7 +24,7 @@ return {
       -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
       -- see the "default configuration" section below for full documentation on how to define
       -- your own keymap.
-      keymap = { preset = 'enter' },
+      keymap = { preset = 'enter', ['<C-k>'] = { 'select_prev', 'fallback' }, ['<C-j>'] = { 'select_next', 'fallback' } },
 
       highlight = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -98,8 +98,7 @@ return {
           codeium = {
             name = 'codeium',
             module = 'blink.compat.source',
-            score_offset = -3,
-            opts = {},
+            score_offset = 10,
           },
         },
       },
@@ -107,7 +106,7 @@ return {
         autocomplete = {
           min_width = 15,
           max_height = 10,
-          border = 'none',
+          border = 'padded',
           winblend = 0,
           winhighlight = 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
           -- keep the cursor X lines away from the top/bottom of the window
