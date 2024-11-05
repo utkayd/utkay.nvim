@@ -64,7 +64,7 @@ vim.keymap.set('n', '<leader>sg', function()
   require('fzf-lua').live_grep_glob { resume = true }
 end, { desc = '[S]earch with [G]rep Glob' })
 vim.keymap.set('n', '<leader><leader>', function()
-  require('fzf-lua').files { resume = true }
+  require('fzf-lua').files {}
 end, { desc = '[S]earch for [F]iles' })
 vim.keymap.set('n', '<leader>sf', function()
   require('fzf-lua').files { resume = true }
