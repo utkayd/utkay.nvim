@@ -187,15 +187,15 @@ return {
   --
   -- This can vary by config, but in-general for nvim-lspconfig:
 
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = { 'saghen/blink.cmp' },
-    config = function(_, opts)
-      local lspconfig = require 'lspconfig'
-      for server, config in pairs(opts.servers or {}) do
-        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-        lspconfig[server].setup(config)
-      end
-    end,
-  },
+  -- {
+  --   'neovim/nvim-lspconfig',
+  --   dependencies = { 'saghen/blink.cmp' },
+  --   config = function(_, opts)
+  --     local lspconfig = require 'lspconfig'
+  --     for server, config in pairs(opts.servers or {}) do
+  --       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+  --       lspconfig[server].setup(config)
+  --     end
+  --   end,
+  -- },
 }
