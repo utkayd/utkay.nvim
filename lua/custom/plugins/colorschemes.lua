@@ -1,7 +1,14 @@
 return {
   { 'catppuccin/nvim' },
   { 'ellisonleao/gruvbox.nvim' },
-  { 'rebelot/kanagawa.nvim' },
+  {
+    'rebelot/kanagawa.nvim',
+    init = function()
+      require('kanagawa').setup {
+        transparent = true,
+      }
+    end,
+  },
   {
     'scottmckendry/cyberdream.nvim',
     lazy = false,
