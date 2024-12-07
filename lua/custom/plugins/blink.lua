@@ -129,7 +129,6 @@ return {
           -- 'reversed' will render the label on the left and the kind icon + name on the right
           -- 'minimal' will render the label on the left and the kind name on the right
           -- 'function(blink.cmp.CompletionRenderContext): blink.cmp.Component[]' for custom rendering
-          draw = 'reversed',
           -- Controls the cycling behavior when reaching the beginning or end of the completion list.
           cycle = {
             -- When `true`, calling `select_next` at the *bottom* of the completion list will select the *first* completion item.
