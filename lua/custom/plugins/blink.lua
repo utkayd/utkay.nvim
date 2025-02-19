@@ -39,9 +39,6 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
-      cmdline = function()
-        return {}
-      end,
       providers = {
         codeium = {
           name = 'codeium',
@@ -49,6 +46,11 @@ return {
           score_offset = 10,
         },
       },
+    },
+    cmdline = {
+      enabled = false,
+      keymap = nil, -- Inherits from top level `keymap` config when not set
+      completion = {},
     },
   },
   opts_extend = { 'sources.default' },
