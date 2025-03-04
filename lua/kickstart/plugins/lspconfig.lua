@@ -76,18 +76,18 @@ return {
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
           map('gd', function()
-            require('fzf-lua').lsp_definitions { jump_to_single_result = true }
+            require('fzf-lua').lsp_definitions()
           end, '[G]oto [D]efinition')
 
           -- Find references for the word under your cursor.
           map('gr', function()
-            require('fzf-lua').lsp_references { jump_to_single_result = true, include_declaration = false, ignore_current_line = true }
+            require('fzf-lua').lsp_references { include_declaration = false, ignore_current_line = true }
           end, '[G]oto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gI', function()
-            require('fzf-lua').lsp_implementations { jump_to_single_result = true }
+            require('fzf-lua').lsp_implementations()
           end, '[G]oto [I]mplementation')
 
           -- Jump to the type of the word under your cursor.
