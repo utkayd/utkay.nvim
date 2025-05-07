@@ -6,6 +6,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
+    dim = { enabled = true },
     explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
@@ -429,6 +430,14 @@ return {
       '<leader>bd',
       function()
         Snacks.bufdelete()
+      end,
+      desc = 'Delete Buffer',
+    },
+
+    {
+      '<leader>bo',
+      function()
+        Snacks.bufdelete.other()
       end,
       desc = 'Delete Buffer',
     },

@@ -61,9 +61,6 @@ vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- move line down(v)
 vim.keymap.set('n', '<A-l>', ':BufferLineMoveNext <CR>') --MoveBufferRight
 vim.keymap.set('n', '<A-h>', ':BufferLineMovePrev <CR>') --MoveBufferLeft
 
-vim.keymap.set('n', '<leader>bd', function()
-  require('bufdelete').bufdelete(0, true)
-end, { desc = 'Delete Buffer' })
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
