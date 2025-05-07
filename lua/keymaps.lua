@@ -61,28 +61,6 @@ vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- move line down(v)
 vim.keymap.set('n', '<A-l>', ':BufferLineMoveNext <CR>') --MoveBufferRight
 vim.keymap.set('n', '<A-h>', ':BufferLineMovePrev <CR>') --MoveBufferLeft
 
---Fzf-Lua-Specific Bindings
-vim.keymap.set('n', '<leader>sg', function()
-  require('fzf-lua').live_grep_glob { resume = true }
-end, { desc = '[S]earch with [G]rep Glob' })
-vim.keymap.set('n', '<leader><leader>', function()
-  require('fzf-lua').files {}
-end, { desc = '[S]earch for [F]iles' })
-vim.keymap.set('n', '<leader>sf', function()
-  require('fzf-lua').files { resume = true }
-end, { desc = '[S]earch for [F]iles' })
-vim.keymap.set('n', '<leader>sm', function()
-  require('fzf-lua').marks()
-end, { desc = '[S]earch for [M]arks' })
-vim.keymap.set('n', '<leader>sk', function()
-  require('fzf-lua').keymaps()
-end, { desc = '[S]earch [K]eymaps' })
-
--- Map to <leader>uC
-vim.keymap.set('n', '<leader>uC', function()
-  require('fzf-lua').colorschemes()
-end, { desc = 'Colorscheme Picker' })
-
 vim.keymap.set('n', '<leader>bd', function()
   require('bufdelete').bufdelete(0, true)
 end, { desc = 'Delete Buffer' })
