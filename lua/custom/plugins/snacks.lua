@@ -13,7 +13,13 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      sources = {
+        explorer = {
+          layout = { layout = { position = 'right' } },
+        },
+      },
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
@@ -63,19 +69,11 @@ return {
       desc = 'Notification History',
     },
     {
-      '<leader>e',
+      '\\',
       function()
         Snacks.explorer()
       end,
       desc = 'File Explorer',
-    },
-    -- find
-    {
-      '<leader>fb',
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = 'Buffers',
     },
     {
       '<leader>fc',
