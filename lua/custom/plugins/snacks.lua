@@ -5,7 +5,23 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      sections = {
+        { section = 'header' },
+        { section = 'keys', gap = 1, padding = 1 },
+        { section = 'startup' },
+        -- { section = 'terminal', cmd = 'ascii-image-converter ~/.config/nvim/banner2.jpeg -C -c', random = 10, pane = 2, indent = 4, height = 30 },
+      },
+      preset = {
+        header = [[██    ██ ████████ ██   ██  █████  ██    ██ ███    ██ ██    ██ ██ ███    ███ 
+██    ██    ██    ██  ██  ██   ██  ██  ██  ████   ██ ██    ██ ██ ████  ████ 
+██    ██    ██    █████   ███████   ████   ██ ██  ██ ██    ██ ██ ██ ████ ██ 
+██    ██    ██    ██  ██  ██   ██    ██    ██  ██ ██  ██  ██  ██ ██  ██  ██ 
+ ██████     ██    ██   ██ ██   ██    ██ ██ ██   ████   ████   ██ ██      ██ 
+                                                                            
+                                                                            ]],
+      },
+    },
     dim = { enabled = true },
     explorer = { enabled = true },
     indent = { enabled = true },
