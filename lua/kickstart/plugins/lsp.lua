@@ -140,6 +140,7 @@ return {
         'stylua',
         'lua_ls',
         'delve',
+        'prettier',
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
