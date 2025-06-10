@@ -51,7 +51,9 @@ vim.keymap.set('s', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 
 --Select All Text
-vim.keymap.set('n', 'vig', 'ggVG', { desc = 'Select All Text' })
+vim.keymap.set('n', 'vig', function()
+  vim.cmd 'normal! gg0vG$'
+end, { desc = 'Select All Text' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<Cr>', { desc = 'Open Lazy View' })
 
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- move line up(n)
@@ -72,4 +74,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.keymap.set('n', '@', function()
+  local count = vim.v.count1
+  local char = vim.fn.getcharstr()
+  vim.cmd('noautocmd norm! ' .. count .. '@' .. char)
+end)
+
+vim.keymap.set('n', '<C-S-l>', '<C-w>>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<C-S-h>', '<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-S-j>', '<C-w>+', { desc = 'Increase window height' })
+vim.keymap.set('n', '<C-S-k>', '<C-w>-', { desc = 'Decrease window height' })
 -- vim: ts=2 sts=2 sw=2 et
