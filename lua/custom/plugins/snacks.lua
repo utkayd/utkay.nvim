@@ -24,7 +24,7 @@ return {
     },
     dim = { enabled = true },
     explorer = { enabled = true },
-    indent = { enabled = true },
+    indent = { enabled = true, chunk = { enabled = true } },
     input = { enabled = true },
     notifier = {
       enabled = true,
@@ -38,6 +38,7 @@ return {
       },
     },
     quickfile = { enabled = true },
+    terminal = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },

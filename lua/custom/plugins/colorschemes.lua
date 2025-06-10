@@ -9,11 +9,6 @@ return {
       }
     end,
   },
-  {
-    'scottmckendry/cyberdream.nvim',
-    lazy = false,
-    priority = 1000,
-  },
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
   { 'rose-pine/neovim', name = 'rose-pine' },
   { 'EdenEast/nightfox.nvim' },
