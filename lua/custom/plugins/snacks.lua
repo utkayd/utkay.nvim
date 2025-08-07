@@ -13,12 +13,12 @@ return {
         -- { section = 'terminal', cmd = 'ascii-image-converter ~/.config/nvim/banner2.jpeg -C -c', random = 10, pane = 2, indent = 4, height = 30 },
       },
       preset = {
-        header = [[██    ██ ████████ ██   ██  █████  ██    ██ ███    ██ ██    ██ ██ ███    ███ 
-██    ██    ██    ██  ██  ██   ██  ██  ██  ████   ██ ██    ██ ██ ████  ████ 
-██    ██    ██    █████   ███████   ████   ██ ██  ██ ██    ██ ██ ██ ████ ██ 
-██    ██    ██    ██  ██  ██   ██    ██    ██  ██ ██  ██  ██  ██ ██  ██  ██ 
- ██████     ██    ██   ██ ██   ██    ██ ██ ██   ████   ████   ██ ██      ██ 
-                                                                            
+        header = [[██    ██ ████████ ██   ██  █████  ██    ██ ███    ██ ██    ██ ██ ███    ███ 
+██    ██    ██    ██  ██  ██   ██  ██  ██  ████   ██ ██    ██ ██ ████  ████ 
+██    ██    ██    █████   ███████   ████   ██ ██  ██ ██    ██ ██ ██ ████ ██ 
+██    ██    ██    ██  ██  ██   ██    ██    ██  ██ ██  ██  ██  ██ ██  ██  ██ 
+ ██████     ██    ██   ██ ██   ██    ██ ██ ██   ████   ████   ██ ██      ██ 
+                                                                            
                                                                             ]],
       },
     },
@@ -38,7 +38,10 @@ return {
       },
     },
     quickfile = { enabled = true },
-    terminal = { enabled = true },
+    -- Terminal configuration - disable auto insert mode
+    terminal = {
+      enabled = true,
+    },
     scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
