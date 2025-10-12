@@ -43,7 +43,13 @@ return {
       enabled = true,
     },
     scope = { enabled = true },
-    scroll = { enabled = true },
+    scroll = {
+      enabled = true,
+      animate = {
+        duration = { step = 5, total = 50 },
+        easing = 'linear',
+      },
+    },
     statuscolumn = { enabled = true },
     words = { enabled = true },
     styles = {

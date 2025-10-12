@@ -135,7 +135,12 @@ return {
         end
       end, vim.tbl_keys(servers))
 
-      require('mason').setup()
+      require('mason').setup {
+        registries = {
+          'github:mason-org/mason-registry',
+          'github:Crashdummyy/mason-registry',
+        },
+      }
       local ensure_installed = {
         'stylua',
         'lua_ls',
