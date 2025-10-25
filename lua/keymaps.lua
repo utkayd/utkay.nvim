@@ -17,9 +17,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "use h to move!!"<cr>')
-vim.keymap.set('n', '<right>', '<cmd>echo "use l to move!!"<cr>')
-vim.keymap.set('n', '<up>', '<cmd>echo "use k to move!!"<cr>')
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
@@ -56,12 +56,12 @@ vim.keymap.set('n', 'vig', function()
 end, { desc = 'Select All Text' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<Cr>', { desc = 'Open Lazy View' })
 
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- move line up(n)
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==') -- move line down(n)
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv") -- move line up(v)
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- move line down(v)
-vim.keymap.set('n', '<A-l>', ':BufferLineMoveNext <CR>') --MoveBufferRight
-vim.keymap.set('n', '<A-h>', ':BufferLineMovePrev <CR>') --MoveBufferLeft
+vim.keymap.set('n', '<A-j>', '<cmd>m .+1<CR>==', { silent = true, desc = 'Move line down' })
+vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==', { silent = true, desc = 'Move line up' })
+vim.keymap.set('v', '<A-j>', "<cmd>m '>+1<CR>gv=gv", { silent = true, desc = 'Move selection down' })
+vim.keymap.set('v', '<A-k>', "<cmd>m '<-2<CR>gv=gv", { silent = true, desc = 'Move selection up' })
+vim.keymap.set('n', '<A-l>', '<cmd>BufferLineMoveNext<CR>', { silent = true, desc = 'Move buffer right' })
+vim.keymap.set('n', '<A-h>', '<cmd>BufferLineMovePrev<CR>', { silent = true, desc = 'Move buffer left' })
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

@@ -84,13 +84,13 @@ return {
         lualine_y = {
           {
             function()
-              return require('vectorcode.integrations').lualine(opts)[1]()
+              return require('vectorcode.integrations').lualine({})[1]()
             end,
             cond = function()
               if package.loaded['vectorcode'] == nil then
                 return false
               else
-                return require('vectorcode.integrations').lualine(opts).cond()
+                return require('vectorcode.integrations').lualine({}).cond()
               end
             end,
             color = { bg = colors.lighter1 },

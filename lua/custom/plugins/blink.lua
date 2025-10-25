@@ -20,7 +20,6 @@ return {
       ghost_text = { enabled = true },
     },
     sources = {
-      providers = {},
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },

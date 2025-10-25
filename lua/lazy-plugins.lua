@@ -22,8 +22,8 @@ require('lazy').setup({
 
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
-  { import ='kickstart/plugins'},
-  {import= 'custom/plugins'},
+  { import = 'kickstart/plugins' },
+  { import = 'custom/plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
