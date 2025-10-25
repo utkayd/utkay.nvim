@@ -81,21 +81,7 @@ return {
           },
           { 'filetype', color = { bg = colors.darker }, separator = { left = '' } },
         },
-        lualine_y = {
-          {
-            function()
-              return require('vectorcode.integrations').lualine({})[1]()
-            end,
-            cond = function()
-              if package.loaded['vectorcode'] == nil then
-                return false
-              else
-                return require('vectorcode.integrations').lualine({}).cond()
-              end
-            end,
-            color = { bg = colors.lighter1 },
-          },
-        },
+        lualine_y = {},
         lualine_z = {
           {
             'location',

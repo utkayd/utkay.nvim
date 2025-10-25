@@ -95,7 +95,7 @@ Notable deviations from standard kickstart:
 4. **Macro optimization**: Custom `@` mapping with `noautocmd` for faster macro execution
 5. **Save shortcuts**: Ctrl+S in all modes, `<leader>qq` to quit all
 6. **Colorscheme**: Uses catppuccin-macchiato (set in init.lua:107)
-7. **Statusline**: Custom lualine configuration with Noice integration and vectorcode support
+7. **Statusline**: Custom lualine configuration with Noice integration  support
 
 ### Special Integrations
 
@@ -103,7 +103,6 @@ Notable deviations from standard kickstart:
   - LSP progress disabled globally to prevent Roslyn crashes (Roslyn LSP bug)
   - Includes presets for better command palette, bottom search, and long messages
   - Markdown rendering overrides enabled for better LSP documentation
-- **Vectorcode**: Lualine integration for vectorcode status (conditional loading)
 - **LSP Lines**: Inline diagnostic display replacing virtual text
 
 ## Adding New LSP Servers
