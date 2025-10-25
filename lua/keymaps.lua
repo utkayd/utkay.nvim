@@ -60,8 +60,6 @@ vim.keymap.set('n', '<A-j>', '<cmd>m .+1<CR>==', { silent = true, desc = 'Move l
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==', { silent = true, desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', "<cmd>m '>+1<CR>gv=gv", { silent = true, desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', "<cmd>m '<-2<CR>gv=gv", { silent = true, desc = 'Move selection up' })
-vim.keymap.set('n', '<A-l>', '<cmd>BufferLineMoveNext<CR>', { silent = true, desc = 'Move buffer right' })
-vim.keymap.set('n', '<A-h>', '<cmd>BufferLineMovePrev<CR>', { silent = true, desc = 'Move buffer left' })
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
