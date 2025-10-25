@@ -44,14 +44,14 @@ return {
           { 'branch', color = { bg = colors.darkest }, separator = { left = '', right = '' } },
           { 'diff', color = { bg = colors.darker }, separator = { left = '', right = '' } },
           { 'diagnostics', color = { bg = colors.base }, separator = { left = '', right = '' } },
-          { 'filename', color = { bg = colors.lighter1, fg = '#ebdbb2' }, separator = { left = '' } },
+          { 'filename', color = { bg = colors.lighter1, fg = '#ebdbb2' }, separator = { left = '', right = '' } },
           { empty, color = { bg = '#1E2030' }, separator = { left = '' } },
         },
         lualine_c = {},
         lualine_x = {
           {
             color = { bg = colors.lighter2 },
-            separator = { left = '', right = '' },
+            separator = { left = ' ', right = '' },
             function()
               return require('noice').api.status.command.get()
             end,
@@ -79,7 +79,7 @@ return {
             end,
             color = { bg = colors.base },
           },
-          { 'filetype', color = { bg = colors.darker }, separator = { left = '' } },
+          { 'filetype', color = { bg = colors.darker }, separator = { left = ' ' } },
         },
         lualine_y = {},
         lualine_z = {
