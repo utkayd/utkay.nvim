@@ -6,6 +6,17 @@ return {
     local function empty()
       return [[ ]]
     end
+
+    -- Color variations from base #363A4F for visual distinction
+    local colors = {
+      darkest = '#2A2D3D', -- 20% darker
+      darker = '#30344A', -- 10% darker
+      base = '#363A4F', -- base color
+      lighter1 = '#42465D', -- 20% lighter
+      lighter2 = '#4E536B', -- 40% lighter
+      lighter3 = '#5A6079', -- 60% lighter
+    }
+
     require('lualine').setup {
       options = {
         icons_enabled = true,
@@ -30,16 +41,16 @@ return {
           { 'mode', separator = { left = ' ', right = '' } },
         },
         lualine_b = {
-          { 'branch', color = { bg = '#404040' }, separator = { left = '', right = '' } },
-          { 'diff', color = { bg = '#505050' }, separator = { left = '', right = '' } },
-          { 'diagnostics', color = { bg = '#606060' }, separator = { left = '', right = '' } },
-          { 'filename', color = { bg = '#707070', fg = '#ebdbb2' }, separator = { left = '' } },
-          { empty, color = { bg = '#2A2A37' }, separator = { left = '' } },
+          { 'branch', color = { bg = colors.darkest }, separator = { left = '', right = '' } },
+          { 'diff', color = { bg = colors.darker }, separator = { left = '', right = '' } },
+          { 'diagnostics', color = { bg = colors.base }, separator = { left = '', right = '' } },
+          { 'filename', color = { bg = colors.lighter1, fg = '#ebdbb2' }, separator = { left = '' } },
+          { empty, color = { bg = '#1E2030' }, separator = { left = '' } },
         },
         lualine_c = {},
         lualine_x = {
           {
-            color = { bg = '#606060' },
+            color = { bg = colors.lighter2 },
             separator = { left = '', right = '' },
             function()
               return require('noice').api.status.command.get()
@@ -55,7 +66,7 @@ return {
             cond = function()
               return package.loaded['noice'] and require('noice').api.status.mode.has()
             end,
-            color = { fg = '#C678DD' },
+            color = { bg = colors.lighter1 },
           },
           {
             function()
@@ -66,9 +77,9 @@ return {
               local lazy_status = require 'lazy.status'
               return lazy_status.has_updates()
             end,
-            color = { fg = '#E5C07B' },
+            color = { bg = colors.base },
           },
-          { 'filetype', color = { bg = '#404040' }, separator = { left = '' } },
+          { 'filetype', color = { bg = colors.darker }, separator = { left = '' } },
         },
         lualine_y = {
           {
@@ -82,6 +93,7 @@ return {
                 return require('vectorcode.integrations').lualine(opts).cond()
               end
             end,
+            color = { bg = colors.lighter1 },
           },
         },
         lualine_z = {

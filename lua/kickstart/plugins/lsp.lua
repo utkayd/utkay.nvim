@@ -24,8 +24,14 @@ return {
       'b0o/SchemaStore.nvim',
     },
     config = function()
+      -- Helper function to extend default lspconfig values
+      -- Used for servers like tailwindcss that need to merge with defaults
       local extend = function(name, key, values)
-        local mod = require(string.format('lspconfig.configs.%s', name))
+        -- In Nvim 0.11, we can still access lspconfig defaults for merging
+        local ok, mod = pcall(require, string.format('lspconfig.configs.%s', name))
+        if not ok then
+          return values
+        end
         local default = mod.default_config
         local keys = vim.split(key, '.', { plain = true })
         while #keys > 0 do
@@ -48,7 +54,6 @@ return {
       end
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      local lspconfig = require 'lspconfig'
 
       local servers = {
         buf_ls = {
@@ -56,15 +61,15 @@ return {
             'proto',
           },
         },
-        bashls = true,
-        gopls = true,
+        bashls = {},
+        gopls = {},
         lua_ls = {
           server_capabilities = {
             semanticTokensProvider = vim.NIL,
           },
         },
-        rust_analyzer = true,
-        pyright = true,
+        rust_analyzer = {},
+        pyright = {},
         ruff = { manual_install = true },
         vtsls = {
           server_capabilities = {
@@ -135,6 +140,7 @@ return {
         end
       end, vim.tbl_keys(servers))
 
+      -- Setup Mason for LSP server installation management
       require('mason').setup {
         registries = {
           'github:mason-org/mason-registry',
@@ -151,16 +157,30 @@ return {
       vim.list_extend(ensure_installed, servers_to_install)
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      -- Configure each LSP server using the new Nvim 0.11 API
       for name, config in pairs(servers) do
-        if config == true then
+        -- Normalize config
+        if type(config) == 'boolean' then
           config = {}
         end
+
+        -- Add capabilities to config
         config = vim.tbl_deep_extend('force', {}, {
           capabilities = capabilities,
         }, config)
 
-        lspconfig[name].setup(config)
+        -- Extract server_capabilities for LspAttach handling (don't pass to vim.lsp.config)
+        -- These are applied in the LspAttach autocmd below
+        local server_caps = config.server_capabilities
+        config.server_capabilities = nil
+
+        -- Register the server configuration using Nvim 0.11+ API
+        -- This replaces the deprecated lspconfig[name].setup(config)
+        vim.lsp.config(name, config)
       end
+
+      -- Enable all configured servers using Nvim 0.11+ API
+      vim.lsp.enable(vim.tbl_keys(servers))
 
       local disable_semantic_tokens = {
         lua = true,
