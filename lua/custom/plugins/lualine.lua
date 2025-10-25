@@ -45,7 +45,6 @@ return {
           { 'diff', color = { bg = colors.darker }, separator = { left = '', right = '' } },
           { 'diagnostics', color = { bg = colors.base }, separator = { left = '', right = '' } },
           { 'filename', color = { bg = colors.lighter1, fg = '#ebdbb2' }, separator = { left = '', right = '' } },
-          { empty, color = { bg = '#1E2030' }, separator = { left = '' } },
         },
         lualine_c = {},
         lualine_x = {
