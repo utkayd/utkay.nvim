@@ -47,6 +47,21 @@ return {
       lualine_a = {
         {
           'mode',
+          color = function()
+            local mode_colors = {
+              n = colors.blue, -- Normal
+              i = colors.green, -- Insert
+              v = colors.mauve, -- Visual
+              V = colors.mauve, -- Visual Line
+              ['^V'] = colors.mauve, -- Visual Block
+              c = colors.peach, -- Command
+              R = colors.red, -- Replace
+              r = colors.red, -- Replace
+              t = colors.teal, -- Terminal
+            }
+            local mode = vim.fn.mode()
+            return { fg = mode_colors[mode] or colors.text, bg = 'none', gui = 'bold' }
+          end,
           padding = { left = 1, right = 1 },
         },
       },
