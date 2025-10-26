@@ -27,6 +27,17 @@ return {
             -- Current line highlight
             CursorLine = { bg = colors.surface0 },
             CursorLineNr = { fg = colors.yellow, bg = colors.surface0, style = { 'bold' } },
+
+            -- Snacks Dashboard highlights (transparent background)
+            SnacksDashboardNormal = { fg = colors.text, bg = 'NONE' },
+            SnacksDashboardHeader = { fg = colors.blue, bg = 'NONE', style = { 'bold' } },
+            SnacksDashboardIcon = { fg = colors.blue, bg = 'NONE' },
+            SnacksDashboardDesc = { fg = colors.text, bg = 'NONE' },
+            SnacksDashboardKey = { fg = colors.sapphire, bg = 'NONE' },
+            SnacksDashboardFooter = { fg = colors.blue, bg = 'NONE', style = { 'italic' } },
+            SnacksDashboardDir = { fg = colors.text, bg = 'NONE' },
+            SnacksDashboardFile = { fg = colors.text, bg = 'NONE' },
+            SnacksDashboardTitle = { fg = colors.blue, bg = 'NONE', style = { 'bold' } },
           }
         end,
       }
