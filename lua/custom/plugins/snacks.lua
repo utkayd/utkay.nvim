@@ -572,6 +572,31 @@ return {
     },
   },
   init = function()
+    -- Override dashboard highlight groups to use catppuccin blue
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      pattern = '*',
+      callback = function()
+        local colors = require('catppuccin.palettes').get_palette 'macchiato'
+        vim.api.nvim_set_hl(0, 'SnacksDashboardNormal', { fg = colors.text, bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'SnacksDashboardHeader', { fg = colors.blue, bg = 'NONE', bold = true })
+        vim.api.nvim_set_hl(0, 'SnacksDashboardIcon', { fg = colors.blue, bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'SnacksDashboardDesc', { fg = colors.text, bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'SnacksDashboardKey', { fg = colors.sapphire, bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'SnacksDashboardFooter', { fg = colors.blue, bg = 'NONE', italic = true })
+      end,
+    })
+
+    -- Apply colors immediately if colorscheme is already loaded
+    if vim.g.colors_name then
+      local colors = require('catppuccin.palettes').get_palette 'macchiato'
+      vim.api.nvim_set_hl(0, 'SnacksDashboardNormal', { fg = colors.text, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardHeader', { fg = colors.blue, bg = 'NONE', bold = true })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardIcon', { fg = colors.blue, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardDesc', { fg = colors.text, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardKey', { fg = colors.sapphire, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardFooter', { fg = colors.blue, bg = 'NONE', italic = true })
+    end
+
     vim.api.nvim_create_autocmd('User', {
       pattern = 'VeryLazy',
       callback = function()

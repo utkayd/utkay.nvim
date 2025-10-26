@@ -57,7 +57,7 @@ return {
               c = colors.peach, -- Command
               R = colors.red, -- Replace
               r = colors.red, -- Replace
-              t = colors.yellow, -- Terminal
+              t = colors.peach, -- Terminal
             }
             local mode = vim.fn.mode()
             return { fg = mode_colors[mode] or colors.text, bg = 'none', gui = 'bold' }
