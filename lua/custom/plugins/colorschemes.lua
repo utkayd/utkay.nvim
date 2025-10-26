@@ -6,9 +6,6 @@ return {
     config = function()
       require('catppuccin').setup {
         transparent_background = false, -- Keep this false to preserve colors
-        integrations = {
-          bufferline = false, -- Disable to allow custom transparent backgrounds
-        },
         custom_highlights = function(colors)
           return {
             -- Line numbers
