@@ -18,6 +18,8 @@ return {
       sections = {
         { section = 'header' },
         { section = 'keys', gap = 1, padding = 1 },
+        { icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = { 2, 2 } },
+        { icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 2 },
         { section = 'startup' },
         -- { section = 'terminal', cmd = 'ascii-image-converter ~/.config/nvim/banner2.jpeg -C -c', random = 10, pane = 2, indent = 4, height = 30 },
       },
@@ -572,22 +574,8 @@ return {
     },
   },
   init = function()
-    -- Override dashboard highlight groups to use catppuccin blue
-    vim.api.nvim_create_autocmd('ColorScheme', {
-      pattern = '*',
-      callback = function()
-        local colors = require('catppuccin.palettes').get_palette 'macchiato'
-        vim.api.nvim_set_hl(0, 'SnacksDashboardNormal', { fg = colors.text, bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'SnacksDashboardHeader', { fg = colors.blue, bg = 'NONE', bold = true })
-        vim.api.nvim_set_hl(0, 'SnacksDashboardIcon', { fg = colors.blue, bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'SnacksDashboardDesc', { fg = colors.text, bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'SnacksDashboardKey', { fg = colors.sapphire, bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'SnacksDashboardFooter', { fg = colors.blue, bg = 'NONE', italic = true })
-      end,
-    })
-
-    -- Apply colors immediately if colorscheme is already loaded
-    if vim.g.colors_name then
+    -- Function to set dashboard highlights
+    local function set_dashboard_highlights()
       local colors = require('catppuccin.palettes').get_palette 'macchiato'
       vim.api.nvim_set_hl(0, 'SnacksDashboardNormal', { fg = colors.text, bg = 'NONE' })
       vim.api.nvim_set_hl(0, 'SnacksDashboardHeader', { fg = colors.blue, bg = 'NONE', bold = true })
@@ -595,6 +583,26 @@ return {
       vim.api.nvim_set_hl(0, 'SnacksDashboardDesc', { fg = colors.text, bg = 'NONE' })
       vim.api.nvim_set_hl(0, 'SnacksDashboardKey', { fg = colors.sapphire, bg = 'NONE' })
       vim.api.nvim_set_hl(0, 'SnacksDashboardFooter', { fg = colors.blue, bg = 'NONE', italic = true })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardDir', { fg = colors.text, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardFile', { fg = colors.text, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'SnacksDashboardTitle', { fg = colors.blue, bg = 'NONE', bold = true })
+    end
+
+    -- Override dashboard highlight groups on colorscheme change
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      pattern = '*',
+      callback = set_dashboard_highlights,
+    })
+
+    -- Override when dashboard opens
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'snacks_dashboard',
+      callback = set_dashboard_highlights,
+    })
+
+    -- Apply colors immediately if colorscheme is already loaded
+    if vim.g.colors_name then
+      set_dashboard_highlights()
     end
 
     vim.api.nvim_create_autocmd('User', {
