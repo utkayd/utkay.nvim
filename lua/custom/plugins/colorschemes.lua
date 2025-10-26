@@ -38,6 +38,12 @@ return {
             SnacksDashboardDir = { fg = colors.text, bg = 'NONE' },
             SnacksDashboardFile = { fg = colors.text, bg = 'NONE' },
             SnacksDashboardTitle = { fg = colors.blue, bg = 'NONE', style = { 'bold' } },
+
+            -- Noice command line colors
+            NoiceCmdlinePopup = { fg = colors.peach, bg = 'NONE' },
+            NoiceCmdlinePopupBorder = { fg = colors.peach, bg = 'NONE' },
+            NoiceCmdlineIcon = { fg = colors.peach },
+            NoiceCmdlinePrompt = { fg = colors.peach },
           }
         end,
       }
