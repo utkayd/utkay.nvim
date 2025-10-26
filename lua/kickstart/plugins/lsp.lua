@@ -180,6 +180,7 @@ return {
       end
 
       -- Enable all configured servers using Nvim 0.11+ API
+      -- This enables the servers globally - they will start based on root_dir detection
       vim.lsp.enable(vim.tbl_keys(servers))
 
       local disable_semantic_tokens = {
@@ -219,6 +220,12 @@ return {
 
       require('lsp_lines').setup()
       vim.diagnostic.config { virtual_text = false, virtual_lines = true }
+
+      -- Remove background from lsp_lines virtual text
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextError', { fg = vim.api.nvim_get_hl(0, { name = 'DiagnosticError' }).fg, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextWarn', { fg = vim.api.nvim_get_hl(0, { name = 'DiagnosticWarn' }).fg, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextInfo', { fg = vim.api.nvim_get_hl(0, { name = 'DiagnosticInfo' }).fg, bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextHint', { fg = vim.api.nvim_get_hl(0, { name = 'DiagnosticHint' }).fg, bg = 'NONE' })
     end,
   },
 }
