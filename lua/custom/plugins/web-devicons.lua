@@ -114,6 +114,12 @@ return {
           cterm_color = '111',
           name = 'UnityScene',
         },
+        ['cs'] = {
+          icon = '󰌛', -- C# icon
+          color = '#0088d1', -- Blue matching lazygit C# color
+          cterm_color = '111',
+          name = 'cs',
+        },
       },
     }
   end,
