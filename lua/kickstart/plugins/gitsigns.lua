@@ -6,9 +6,15 @@
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
-    opts = {
-      current_line_blame = true,
-      signs = {
+    config = function()
+      require('gitsigns').setup {
+        current_line_blame = true,
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = 'eol',
+          delay = 500,
+        },
+        signs = {
         add = { text = '+' },
         change = { text = '~' },
         delete = { text = '_' },
@@ -65,7 +71,11 @@ return {
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' })
       end,
-    },
+      }
+
+      -- Set a more visible color for the blame virtual text
+      vim.api.nvim_set_hl(0, 'GitSignsCurrentLineBlame', { fg = '#7c7d83', italic = true })
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
