@@ -135,6 +135,13 @@ return {
       },
       lualine_x = {
         {
+          'searchcount',
+          maxcount = 999,
+          timeout = 500,
+          color = { fg = colors.green, bg = 'none' },
+          padding = { left = 1, right = 1 },
+        },
+        {
           function()
             return require('noice').api.status.command.get()
           end,
