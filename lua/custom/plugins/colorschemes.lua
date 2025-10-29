@@ -16,6 +16,7 @@ return {
             NormalNC = { bg = 'NONE' },
             NormalFloat = { bg = 'NONE' },
             FloatBorder = { bg = 'NONE' },
+            FloatTitle = { bg = 'NONE' },
             Pmenu = { bg = 'NONE' },
             SignColumn = { bg = 'NONE' },
             -- Uncomment if you want statusline/tabline transparent too:
@@ -38,6 +39,10 @@ return {
             SnacksDashboardDir = { fg = colors.text, bg = 'NONE' },
             SnacksDashboardFile = { fg = colors.text, bg = 'NONE' },
             SnacksDashboardTitle = { fg = colors.blue, bg = 'NONE', style = { 'bold' } },
+
+            -- Snacks UI titles (Explorer, etc.)
+            SnacksNotifierTitle = { bg = 'NONE' },
+            SnacksNotifierBorder = { bg = 'NONE' },
 
             -- Noice command line colors
             NoiceCmdlinePopup = { fg = colors.peach, bg = 'NONE' },
