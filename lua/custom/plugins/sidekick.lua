@@ -42,10 +42,20 @@ return {
       desc = "Sidekick Select Prompt",
     },
     {
-      "<c-.>",
-      function() require("sidekick.cli").focus() end,
+      "<c-Space>",
+      function()
+        local sidekick = require("sidekick.cli")
+        -- Check if we're currently in a terminal buffer (sidekick view)
+        if vim.bo.buftype == "terminal" then
+          -- If in sidekick, toggle it to close
+          sidekick.toggle()
+        else
+          -- Otherwise, focus it
+          sidekick.focus()
+        end
+      end,
       mode = { "n", "x", "i", "t" },
-      desc = "Sidekick Switch Focus",
+      desc = "Sidekick Toggle/Focus",
     },
     -- Example of a keybinding to open Claude directly
     {
