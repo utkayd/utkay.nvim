@@ -14,6 +14,12 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
+    lazygit = {
+      configure = true,
+      theme = {
+        [241] = { fg = 'Special' },
+      },
+    },
     dashboard = {
       sections = {
         { section = 'header' },

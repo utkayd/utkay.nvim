@@ -171,7 +171,6 @@ return {
 
         -- Extract server_capabilities for LspAttach handling (don't pass to vim.lsp.config)
         -- These are applied in the LspAttach autocmd below
-        local server_caps = config.server_capabilities
         config.server_capabilities = nil
 
         -- Register the server configuration using Nvim 0.11+ API
