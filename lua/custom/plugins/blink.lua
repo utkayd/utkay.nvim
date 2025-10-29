@@ -18,6 +18,17 @@ return {
     },
     completion = {
       ghost_text = { enabled = true },
+      menu = {
+        border = 'rounded',
+        winhighlight = 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
+      },
+      documentation = {
+        auto_show = true,
+        window = {
+          border = 'rounded',
+          winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:Visual,Search:None',
+        },
+      },
     },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
@@ -25,4 +36,14 @@ return {
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
   opts_extend = { 'sources.default' },
+  config = function(_, opts)
+    require('blink.cmp').setup(opts)
+
+    -- Set transparent backgrounds for blink windows
+    vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { link = 'FloatBorder' })
+    vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection', { link = 'PmenuSel' })
+    vim.api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder', { link = 'FloatBorder' })
+  end,
 }

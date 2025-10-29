@@ -55,6 +55,17 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+      -- Configure all LSP floating windows with rounded borders
+      local border_opts = {
+        border = 'rounded',
+      }
+
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, border_opts)
+      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, border_opts)
+
+      -- Set default border for all floating windows
+      require('lspconfig.ui.windows').default_options.border = 'rounded'
+
       local servers = {
         buf_ls = {
           filetypes = {
@@ -218,7 +229,11 @@ return {
       })
 
       require('lsp_lines').setup()
-      vim.diagnostic.config { virtual_text = false, virtual_lines = true }
+      vim.diagnostic.config {
+        virtual_text = false,
+        virtual_lines = true,
+        float = { border = 'rounded' },
+      }
 
       -- Remove background from lsp_lines virtual text
       vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextError', { fg = vim.api.nvim_get_hl(0, { name = 'DiagnosticError' }).fg, bg = 'NONE' })

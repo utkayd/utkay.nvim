@@ -19,6 +19,9 @@ return {
       theme = {
         [241] = { fg = 'Special' },
       },
+      win = {
+        border = 'rounded',
+      },
     },
     dashboard = {
       sections = {
