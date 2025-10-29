@@ -38,9 +38,6 @@ vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
 vim.keymap.set('n', 'C', '"_C', { noremap = true, silent = true })
 vim.keymap.set('v', 'c', '"_c', { noremap = true, silent = true })
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
 --Save with Control+s
 vim.keymap.set('n', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 vim.keymap.set('x', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
@@ -60,17 +57,6 @@ vim.keymap.set('n', '<A-j>', '<cmd>m .+1<CR>==', { silent = true, desc = 'Move l
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==', { silent = true, desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', "<cmd>m '>+1<CR>gv=gv", { silent = true, desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', "<cmd>m '<-2<CR>gv=gv", { silent = true, desc = 'Move selection up' })
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 vim.keymap.set('n', '@', function()
   local count = vim.v.count1

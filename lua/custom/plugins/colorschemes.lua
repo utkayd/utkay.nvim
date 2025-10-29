@@ -49,6 +49,9 @@ return {
             NoiceCmdlinePopupBorder = { fg = colors.peach, bg = 'NONE' },
             NoiceCmdlineIcon = { fg = colors.peach },
             NoiceCmdlinePrompt = { fg = colors.peach },
+
+            -- Yank highlight
+            YankHighlight = { bg = colors.peach, fg = colors.base },
           }
         end,
       }

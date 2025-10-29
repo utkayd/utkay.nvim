@@ -228,7 +228,7 @@ return {
       })
 
       vim.diagnostic.config {
-        virtual_text = true,
+        virtual_text = false,
         float = { border = 'rounded' },
       }
 
