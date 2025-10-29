@@ -20,7 +20,6 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
-      { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
       'b0o/SchemaStore.nvim',
     },
     config = function()
@@ -228,10 +227,8 @@ return {
         end,
       })
 
-      require('lsp_lines').setup()
       vim.diagnostic.config {
-        virtual_text = false,
-        virtual_lines = true,
+        virtual_text = true,
         float = { border = 'rounded' },
       }
 
