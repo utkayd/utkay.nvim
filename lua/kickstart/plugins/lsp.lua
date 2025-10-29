@@ -152,6 +152,9 @@ return {
 
       -- Setup Mason for LSP server installation management
       require('mason').setup {
+        ui = {
+          border = 'rounded',
+        },
         registries = {
           'github:mason-org/mason-registry',
           'github:Crashdummyy/mason-registry',
