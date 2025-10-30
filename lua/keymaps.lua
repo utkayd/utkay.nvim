@@ -31,13 +31,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', 'd', '"_d', { noremap = true, silent = true })
-vim.keymap.set('n', 'D', '"_D', { noremap = true, silent = true })
-vim.keymap.set('v', 'd', '"_d', { noremap = true, silent = true })
-vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
-vim.keymap.set('n', 'C', '"_C', { noremap = true, silent = true })
-vim.keymap.set('v', 'c', '"_c', { noremap = true, silent = true })
-
 --Save with Control+s
 vim.keymap.set('n', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 vim.keymap.set('x', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })

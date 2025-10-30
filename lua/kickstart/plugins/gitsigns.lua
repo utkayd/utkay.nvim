@@ -14,6 +14,10 @@ return {
           virt_text_pos = 'eol',
           delay = 500,
         },
+        preview_config = {
+          border = 'rounded',
+          style = 'minimal',
+        },
         signs = {
         add = { text = '+' },
         change = { text = '~' },
