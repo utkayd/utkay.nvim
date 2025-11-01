@@ -7,6 +7,10 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
+    snippets = {
+      -- Load VSCode-style snippets from your custom snippets directory
+      paths = { vim.fn.stdpath 'config' .. '/snippets' },
+    },
     keymap = { preset = 'enter', ['<C-k>'] = { 'select_prev', 'fallback' }, ['<C-j>'] = { 'select_next', 'fallback' } },
     appearance = {
       use_nvim_cmp_as_default = true,
