@@ -51,8 +51,11 @@ return {
       enabled = true,
       timeout = 3000,
     },
+    gh = { enabled = true },
     picker = {
       sources = {
+        gh_issue = {},
+        gh_pr = {},
         explorer = {
           layout = { layout = { position = 'right' } },
         },
@@ -90,6 +93,34 @@ return {
   },
   keys = {
     -- Top Pickers & Explorer
+    {
+      '<leader>ghi',
+      function()
+        Snacks.picker.gh_issue()
+      end,
+      desc = 'GitHub Issues (open)',
+    },
+    {
+      '<leader>ghI',
+      function()
+        Snacks.picker.gh_issue { state = 'all' }
+      end,
+      desc = 'GitHub Issues (all)',
+    },
+    {
+      '<leader>ghp',
+      function()
+        Snacks.picker.gh_pr()
+      end,
+      desc = 'GitHub Pull Requests (open)',
+    },
+    {
+      '<leader>ghP',
+      function()
+        Snacks.picker.gh_pr { state = 'all' }
+      end,
+      desc = 'GitHub Pull Requests (all)',
+    },
     {
       '<leader><space>',
       function()
