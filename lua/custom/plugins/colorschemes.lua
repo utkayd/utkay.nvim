@@ -52,6 +52,10 @@ return {
 
             -- Yank highlight
             YankHighlight = { bg = colors.peach, fg = colors.base },
+
+            -- UFO fold highlights (transparent background)
+            Folded = { bg = 'NONE' },
+            FoldColumn = { bg = 'NONE' },
           }
         end,
       }
