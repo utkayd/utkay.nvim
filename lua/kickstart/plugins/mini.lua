@@ -20,6 +20,21 @@ return {
       -- Autopairs - automatically insert closing brackets, quotes, etc.
       require('mini.pairs').setup()
 
+      -- Highlight patterns (TODO comments, color codes, etc.)
+      local hipatterns = require 'mini.hipatterns'
+      hipatterns.setup {
+        highlighters = {
+          -- Highlight TODO, FIXME, HACK, NOTE, etc. in comments
+          fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+          todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+          note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+
+          -- Highlight hex color strings (#rrggbb, #rgb)
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      }
+
       -- Simple wnd easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
