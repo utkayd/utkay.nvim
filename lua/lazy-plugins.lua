@@ -22,8 +22,7 @@ require('lazy').setup({
 
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
-  { import = 'kickstart/plugins' },
-  { import = 'custom/plugins' },
+  { import = 'plugins' },
 }, {
   ui = {
     -- Add border to Lazy UI window
