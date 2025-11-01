@@ -173,25 +173,6 @@ return {
           color = { fg = colors.green, bg = 'none' },
           padding = { left = 1, right = 1 },
         },
-        {
-          function()
-            local bufnr_list = vim.fn.getbufinfo { buflisted = 1 }
-            local total = #bufnr_list
-            local current_bufnr = vim.api.nvim_get_current_buf()
-            local current_index = 0
-
-            for i, buf in ipairs(bufnr_list) do
-              if buf.bufnr == current_bufnr then
-                current_index = i
-                break
-              end
-            end
-
-            return string.format(' %d/%d', current_index, total)
-          end,
-          color = { fg = colors.yellow, bg = 'none' },
-          padding = { left = 1, right = 1 },
-        },
       },
       lualine_y = {
         separator(),
