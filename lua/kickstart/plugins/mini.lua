@@ -20,6 +20,43 @@ return {
       -- Autopairs - automatically insert closing brackets, quotes, etc.
       require('mini.pairs').setup()
 
+      -- File icons (replaces nvim-web-devicons)
+      local icons = require 'mini.icons'
+      icons.setup {
+        -- Extension-based icons
+        extension = {
+          -- Unity file extensions
+          meta = { glyph = '󰚯', hl = 'MiniIconsUnityMeta' },
+          asset = { glyph = '󰚯', hl = 'MiniIconsUnityAsset' },
+          lighting = { glyph = '󱩎', hl = 'MiniIconsUnityLighting' },
+          prefab = { glyph = '󰚯', hl = 'MiniIconsUnityPrefab' },
+          unity = { glyph = '󰚯', hl = 'MiniIconsUnityScene' },
+          -- C# custom icon
+          cs = { glyph = '󰌛', hl = 'MiniIconsCSharp' },
+        },
+        -- Filename-based icons (for dotfiles like .meta, .asset, etc.)
+        file = {
+          ['.meta'] = { glyph = '󰚯', hl = 'MiniIconsUnityMeta' },
+          ['.asset'] = { glyph = '󰚯', hl = 'MiniIconsUnityAsset' },
+          ['.lighting'] = { glyph = '󱩎', hl = 'MiniIconsUnityLighting' },
+          ['.prefab'] = { glyph = '󰚯', hl = 'MiniIconsUnityPrefab' },
+          ['.unity'] = { glyph = '󰚯', hl = 'MiniIconsUnityScene' },
+        },
+        style = 'glyph', -- Use only glyphs (icons)
+      }
+
+      -- Mock nvim-web-devicons for plugins that expect it (like barbar)
+      icons.mock_nvim_web_devicons()
+
+      -- Define custom highlight groups for Unity icons using catppuccin colors
+      local colors = require('catppuccin.palettes').get_palette 'macchiato'
+      vim.api.nvim_set_hl(0, 'MiniIconsUnityMeta', { fg = colors.text })
+      vim.api.nvim_set_hl(0, 'MiniIconsUnityAsset', { fg = colors.peach })
+      vim.api.nvim_set_hl(0, 'MiniIconsUnityLighting', { fg = colors.yellow })
+      vim.api.nvim_set_hl(0, 'MiniIconsUnityPrefab', { fg = colors.blue })
+      vim.api.nvim_set_hl(0, 'MiniIconsUnityScene', { fg = colors.yellow })
+      vim.api.nvim_set_hl(0, 'MiniIconsCSharp', { fg = '#0088d1' })
+
       -- Highlight patterns (TODO comments, color codes, etc.)
       local hipatterns = require 'mini.hipatterns'
       hipatterns.setup {
