@@ -60,4 +60,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+
+-- Set cursor: block in normal mode, bar in insert mode and terminal mode
+vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:ver25,a:blinkwait700-blinkoff400-blinkon250'
 -- vim: ts=2 sts=2 sw=2 et

@@ -73,6 +73,9 @@ return {
           hide_slash = { '<C-/>', 'hide', desc = 'Hide Terminal', mode = { 't', 'n' } },
           hide_underscore = { '<c-_>', 'hide', desc = 'which_key_ignore', mode = { 't', 'n' } },
         },
+        wo = {
+          winbar = '',
+        },
       },
     },
     scope = { enabled = true },

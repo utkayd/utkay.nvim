@@ -61,4 +61,12 @@ vim.keymap.set('n', '<C-S-l>', '<C-w>>', { desc = 'Increase window width' })
 vim.keymap.set('n', '<C-S-h>', '<C-w><', { desc = 'Decrease window width' })
 vim.keymap.set('n', '<C-S-j>', '<C-w>+', { desc = 'Increase window height' })
 vim.keymap.set('n', '<C-S-k>', '<C-w>-', { desc = 'Decrease window height' })
+
+-- Force bar cursor in terminal mode
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  callback = function()
+    vim.opt_local.guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:ver25,a:blinkwait700-blinkoff400-blinkon250'
+  end,
+})
 -- vim: ts=2 sts=2 sw=2 et
