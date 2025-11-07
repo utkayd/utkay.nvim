@@ -11,7 +11,7 @@ return {
             -- Line numbers
             LineNr = { fg = colors.overlay2 },
 
-            -- Make backgrounds transparent (inherit from terminal)
+            -- -- Make backgrounds transparent (inherit from terminal)
             Normal = { bg = 'NONE' },
             NormalNC = { bg = 'NONE' },
             NormalFloat = { bg = 'NONE' },
@@ -40,9 +40,9 @@ return {
             SnacksDashboardFile = { fg = colors.text, bg = 'NONE' },
             SnacksDashboardTitle = { fg = colors.blue, bg = 'NONE', style = { 'bold' } },
 
-            -- Snacks UI titles (Explorer, etc.)
-            SnacksNotifierTitle = { bg = 'NONE' },
-            SnacksNotifierBorder = { bg = 'NONE' },
+            -- -- Snacks UI titles (Explorer, etc.)
+            -- SnacksNotifierTitle = { bg = 'NONE' },
+            -- SnacksNotifierBorder = { bg = 'NONE' },
 
             -- Noice command line colors
             NoiceCmdlinePopup = { fg = colors.peach, bg = 'NONE' },
@@ -53,13 +53,13 @@ return {
             -- Yank highlight
             YankHighlight = { bg = colors.peach, fg = colors.base },
 
-            -- UFO fold highlights (transparent background)
-            Folded = { bg = 'NONE' },
-            FoldColumn = { bg = 'NONE' },
+            -- -- UFO fold highlights (transparent background)
+            -- Folded = { bg = 'NONE' },
+            -- FoldColumn = { bg = 'NONE' },
           }
         end,
       }
-      vim.cmd.colorscheme 'catppuccin-macchiato'
+      vim.cmd.colorscheme 'catppuccin-frappe'
     end,
   },
 }
