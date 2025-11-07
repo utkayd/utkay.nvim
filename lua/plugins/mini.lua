@@ -45,7 +45,7 @@ return {
         style = 'glyph', -- Use only glyphs (icons)
       }
 
-      -- Mock nvim-web-devicons for plugins that expect it (like barbar)
+      -- Mock nvim-web-devicons for plugins that expect it
       icons.mock_nvim_web_devicons()
 
       -- Define custom highlight groups for Unity icons using catppuccin colors
