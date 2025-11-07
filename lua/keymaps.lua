@@ -57,10 +57,10 @@ vim.keymap.set('n', '@', function()
   vim.cmd('noautocmd norm! ' .. count .. '@' .. char)
 end)
 
-vim.keymap.set('n', '<C-S-l>', '<C-w>>', { desc = 'Increase window width' })
-vim.keymap.set('n', '<C-S-h>', '<C-w><', { desc = 'Decrease window width' })
-vim.keymap.set('n', '<C-S-j>', '<C-w>+', { desc = 'Increase window height' })
-vim.keymap.set('n', '<C-S-k>', '<C-w>-', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<M-S-l>', '<cmd>vertical resize +2<CR>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<M-S-h>', '<cmd>vertical resize -2<CR>', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<M-S-j>', '<cmd>resize +2<CR>', { desc = 'Increase window height' })
+vim.keymap.set('n', '<M-S-k>', '<cmd>resize -2<CR>', { desc = 'Decrease window height' })
 
 -- Force bar cursor in terminal mode
 vim.api.nvim_create_autocmd('TermOpen', {
