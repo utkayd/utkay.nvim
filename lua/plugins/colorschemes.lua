@@ -91,14 +91,14 @@ return {
 
           -- Snacks Dashboard highlights
           highlights.SnacksDashboardNormal = { fg = colors.snow_storm.origin, bg = 'NONE' }
-          highlights.SnacksDashboardHeader = { fg = colors.frost.ice, bg = 'NONE', bold = true }
-          highlights.SnacksDashboardIcon = { fg = colors.frost.ice, bg = 'NONE' }
+          highlights.SnacksDashboardHeader = { fg = colors.aurora.yellow, bg = 'NONE', bold = true }
+          highlights.SnacksDashboardIcon = { fg = colors.aurora.yellow, bg = 'NONE' }
           highlights.SnacksDashboardDesc = { fg = colors.snow_storm.origin, bg = 'NONE' }
-          highlights.SnacksDashboardKey = { fg = colors.frost.polar_water, bg = 'NONE' }
-          highlights.SnacksDashboardFooter = { fg = colors.frost.ice, bg = 'NONE', italic = true }
+          highlights.SnacksDashboardKey = { fg = colors.aurora.yellow, bg = 'NONE' }
+          highlights.SnacksDashboardFooter = { fg = colors.aurora.yellow, bg = 'NONE', italic = true }
           highlights.SnacksDashboardDir = { fg = colors.snow_storm.origin, bg = 'NONE' }
-          highlights.SnacksDashboardFile = { fg = colors.snow_storm.origin, bg = 'NONE' }
-          highlights.SnacksDashboardTitle = { fg = colors.frost.ice, bg = 'NONE', bold = true }
+          highlights.SnacksDashboardFile = { fg = colors.aurora.yellow, bg = 'NONE' }
+          highlights.SnacksDashboardTitle = { fg = colors.aurora.yellow, bg = 'NONE', bold = true }
 
           -- Fidget.nvim highlights (LSP progress notifications)
           highlights.FidgetTask = { fg = colors.snow_storm.origin, bg = 'NONE' }
