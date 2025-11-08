@@ -66,7 +66,7 @@ return {
           -- Get colors from existing highlight groups for resilience across colorschemes
           normal_fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg,
           comment_fg = vim.api.nvim_get_hl(0, { name = 'Comment' }).fg,
-          blue_fg = vim.api.nvim_get_hl(0, { name = 'Function' }).fg or vim.api.nvim_get_hl(0, { name = 'Type' }).fg,
+          blue_fg = '#8caaee', -- Custom blue color for selected buffer
         }
 
         return {
