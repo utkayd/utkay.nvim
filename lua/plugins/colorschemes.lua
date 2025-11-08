@@ -53,13 +53,67 @@ return {
             -- Yank highlight
             YankHighlight = { bg = colors.peach, fg = colors.base },
 
-            -- -- UFO fold highlights (transparent background)
-            -- Folded = { bg = 'NONE' },
-            -- FoldColumn = { bg = 'NONE' },
+            -- Fidget.nvim highlights (LSP progress notifications)
+            FidgetTask = { fg = colors.text, bg = 'NONE' },
+            FidgetTitle = { fg = colors.blue, bg = 'NONE', style = { 'bold' } },
+            FidgetNormal = { bg = 'NONE' },
+            FidgetBorder = { fg = colors.blue, bg = 'NONE' },
+
+            -- UFO fold highlights (visible background for folds)
+            Folded = { fg = colors.overlay2, bg = colors.surface0 },
+            FoldColumn = { fg = colors.overlay0, bg = 'NONE' },
+            UfoFoldedBg = { bg = colors.surface0 },
+            UfoFoldedFg = { fg = colors.overlay2 },
+            UfoCursorFoldedLine = { fg = colors.text, bg = colors.surface1, style = { 'bold' } },
           }
         end,
       }
-      vim.cmd.colorscheme 'catppuccin-frappe'
+    end,
+  },
+  {
+    'gbprod/nord.nvim',
+    config = function()
+      require('nord').setup {
+        transparent = false, -- Keep false to use nord colors properly
+        on_highlights = function(highlights, colors)
+          -- Override backgrounds to be transparent
+          highlights.Normal = { bg = 'NONE' }
+          highlights.NormalNC = { bg = 'NONE' }
+          highlights.NormalFloat = { bg = 'NONE' }
+          highlights.FloatBorder = { bg = 'NONE' }
+          highlights.FloatTitle = { bg = 'NONE' }
+          highlights.Pmenu = { bg = 'NONE' }
+          highlights.SignColumn = { bg = 'NONE' }
+          highlights.StatusLine = { bg = 'NONE' }
+          highlights.TabLine = { bg = 'NONE' }
+          highlights.TabLineFill = { bg = 'NONE' }
+          highlights.TabLineSel = { bg = 'NONE' }
+
+          -- Snacks Dashboard highlights
+          highlights.SnacksDashboardNormal = { fg = colors.nord4, bg = 'NONE' }
+          highlights.SnacksDashboardHeader = { fg = colors.nord8, bg = 'NONE', bold = true }
+          highlights.SnacksDashboardIcon = { fg = colors.nord8, bg = 'NONE' }
+          highlights.SnacksDashboardDesc = { fg = colors.nord4, bg = 'NONE' }
+          highlights.SnacksDashboardKey = { fg = colors.nord7, bg = 'NONE' }
+          highlights.SnacksDashboardFooter = { fg = colors.nord8, bg = 'NONE', italic = true }
+          highlights.SnacksDashboardDir = { fg = colors.nord4, bg = 'NONE' }
+          highlights.SnacksDashboardFile = { fg = colors.nord4, bg = 'NONE' }
+          highlights.SnacksDashboardTitle = { fg = colors.nord8, bg = 'NONE', bold = true }
+
+          -- Fidget.nvim highlights (LSP progress notifications)
+          highlights.FidgetTask = { fg = colors.nord4, bg = 'NONE' }
+          highlights.FidgetTitle = { fg = colors.nord8, bg = 'NONE', bold = true }
+          highlights.FidgetNormal = { bg = 'NONE' }
+          highlights.FidgetBorder = { fg = colors.nord9, bg = 'NONE' }
+
+          -- UFO fold highlights (visible background for folds)
+          highlights.Folded = { fg = '#D8DEE9', bg = '#4C566A' } -- nord4 text on nord3 bg
+          highlights.FoldColumn = { fg = '#4C566A', bg = 'NONE' }
+          highlights.UfoFoldedBg = { bg = '#4C566A' } -- nord3
+          highlights.UfoFoldedFg = { fg = '#D8DEE9' } -- nord4
+          highlights.UfoCursorFoldedLine = { fg = '#88C0D0', bg = '#616E88', bold = true } -- nord8 on light gray
+        end,
+      }
     end,
   },
 }

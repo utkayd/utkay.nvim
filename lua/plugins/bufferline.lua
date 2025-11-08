@@ -48,7 +48,7 @@ return {
         show_buffer_icons = true,
         show_buffer_close_icons = false,
         show_close_icon = false,
-        show_tab_indicators = true,
+        show_tab_indicators = false,
         show_duplicate_prefix = true,
         persist_buffer_sort = true,
         separator_style = { '|', '|' },
@@ -61,29 +61,90 @@ return {
         },
         sort_by = 'insert_after_current',
       },
-      highlights = {
-        fill = {
-          bg = 'NONE',
-        },
-        buffer_selected = {
-          fg = '#8aadf4', -- catppuccin-macchiato blue
-          bg = 'NONE',
-          bold = false,
-          italic = false,
-        },
-        buffer_visible = {
-          fg = '#cad3f5', -- catppuccin-macchiato text
-          bg = 'NONE',
-          bold = false,
-          italic = false,
-        },
-        background = {
-          fg = '#cad3f5', -- catppuccin-macchiato text
-          bg = 'NONE',
-          bold = false,
-          italic = false,
-        },
-      },
+      highlights = function(config)
+        local colors = {
+          -- Get colors from existing highlight groups for resilience across colorschemes
+          normal_fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg,
+          comment_fg = vim.api.nvim_get_hl(0, { name = 'Comment' }).fg,
+          blue_fg = vim.api.nvim_get_hl(0, { name = 'Function' }).fg or vim.api.nvim_get_hl(0, { name = 'Type' }).fg,
+        }
+
+        return {
+          fill = {
+            bg = 'NONE',
+          },
+          buffer_selected = {
+            fg = colors.blue_fg, -- Use blue color (Function highlight) for selected buffer
+            bg = 'NONE',
+            bold = true,
+            italic = false,
+          },
+          buffer_visible = {
+            fg = colors.normal_fg, -- Use normal text color
+            bg = 'NONE',
+            bold = false,
+            italic = false,
+          },
+          background = {
+            fg = colors.comment_fg, -- Use comment color for inactive buffers
+            bg = 'NONE',
+            bold = false,
+            italic = false,
+          },
+          -- Separator highlights
+          separator = {
+            fg = colors.comment_fg,
+            bg = 'NONE',
+          },
+          separator_selected = {
+            fg = colors.blue_fg,
+            bg = 'NONE',
+          },
+          separator_visible = {
+            fg = colors.comment_fg,
+            bg = 'NONE',
+          },
+          -- Tab highlights (for the weird bg after separator)
+          tab = {
+            fg = colors.comment_fg,
+            bg = 'NONE',
+          },
+          tab_selected = {
+            fg = colors.blue_fg,
+            bg = 'NONE',
+          },
+          tab_close = {
+            fg = colors.comment_fg,
+            bg = 'NONE',
+          },
+          -- Close button highlights
+          close_button = {
+            fg = colors.comment_fg,
+            bg = 'NONE',
+          },
+          close_button_visible = {
+            fg = colors.normal_fg,
+            bg = 'NONE',
+          },
+          close_button_selected = {
+            fg = colors.blue_fg,
+            bg = 'NONE',
+          },
+          -- Modified indicator
+          modified = {
+            fg = colors.comment_fg,
+            bg = 'NONE',
+          },
+          modified_visible = {
+            fg = colors.normal_fg,
+            bg = 'NONE',
+          },
+          modified_selected = {
+            fg = colors.blue_fg,
+            bg = 'NONE',
+          },
+        }
+      end,
     }
   end,
 }

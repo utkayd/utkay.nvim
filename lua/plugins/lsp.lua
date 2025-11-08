@@ -19,7 +19,17 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              normal_hl = 'Normal', -- Use Normal highlight (which we set to transparent)
+              winblend = 0, -- No blending
+            },
+          },
+        },
+      },
       'b0o/SchemaStore.nvim',
     },
     config = function()
