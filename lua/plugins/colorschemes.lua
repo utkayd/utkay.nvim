@@ -115,6 +115,7 @@ return {
 
           -- ErrorMsg is what Snacks uses for error notifications
           highlights.ErrorMsg = { fg = colors.aurora.red, bg = 'NONE', bold = true, italic = true }
+          highlights.WarningMsg = { fg = colors.aurora.orange, bg = 'NONE', bold = true, italic = true }
 
           -- Yank highlight (similar to catppuccin peach)
           highlights.YankHighlight = { bg = colors.aurora.orange, fg = colors.polar_night.origin }
