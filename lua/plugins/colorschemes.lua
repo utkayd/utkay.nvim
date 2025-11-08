@@ -90,28 +90,34 @@ return {
           highlights.TabLineSel = { bg = 'NONE' }
 
           -- Snacks Dashboard highlights
-          highlights.SnacksDashboardNormal = { fg = colors.nord4, bg = 'NONE' }
-          highlights.SnacksDashboardHeader = { fg = colors.nord8, bg = 'NONE', bold = true }
-          highlights.SnacksDashboardIcon = { fg = colors.nord8, bg = 'NONE' }
-          highlights.SnacksDashboardDesc = { fg = colors.nord4, bg = 'NONE' }
-          highlights.SnacksDashboardKey = { fg = colors.nord7, bg = 'NONE' }
-          highlights.SnacksDashboardFooter = { fg = colors.nord8, bg = 'NONE', italic = true }
-          highlights.SnacksDashboardDir = { fg = colors.nord4, bg = 'NONE' }
-          highlights.SnacksDashboardFile = { fg = colors.nord4, bg = 'NONE' }
-          highlights.SnacksDashboardTitle = { fg = colors.nord8, bg = 'NONE', bold = true }
+          highlights.SnacksDashboardNormal = { fg = colors.snow_storm.origin, bg = 'NONE' }
+          highlights.SnacksDashboardHeader = { fg = colors.frost.ice, bg = 'NONE', bold = true }
+          highlights.SnacksDashboardIcon = { fg = colors.frost.ice, bg = 'NONE' }
+          highlights.SnacksDashboardDesc = { fg = colors.snow_storm.origin, bg = 'NONE' }
+          highlights.SnacksDashboardKey = { fg = colors.frost.polar_water, bg = 'NONE' }
+          highlights.SnacksDashboardFooter = { fg = colors.frost.ice, bg = 'NONE', italic = true }
+          highlights.SnacksDashboardDir = { fg = colors.snow_storm.origin, bg = 'NONE' }
+          highlights.SnacksDashboardFile = { fg = colors.snow_storm.origin, bg = 'NONE' }
+          highlights.SnacksDashboardTitle = { fg = colors.frost.ice, bg = 'NONE', bold = true }
 
           -- Fidget.nvim highlights (LSP progress notifications)
-          highlights.FidgetTask = { fg = colors.nord4, bg = 'NONE' }
-          highlights.FidgetTitle = { fg = colors.nord8, bg = 'NONE', bold = true }
+          highlights.FidgetTask = { fg = colors.snow_storm.origin, bg = 'NONE' }
+          highlights.FidgetTitle = { fg = colors.frost.ice, bg = 'NONE', bold = true }
           highlights.FidgetNormal = { bg = 'NONE' }
-          highlights.FidgetBorder = { fg = colors.nord9, bg = 'NONE' }
+          highlights.FidgetBorder = { fg = colors.frost.artic_water, bg = 'NONE' }
 
           -- UFO fold highlights (visible background for folds)
-          highlights.Folded = { fg = '#D8DEE9', bg = '#4C566A' } -- nord4 text on nord3 bg
-          highlights.FoldColumn = { fg = '#4C566A', bg = 'NONE' }
-          highlights.UfoFoldedBg = { bg = '#4C566A' } -- nord3
-          highlights.UfoFoldedFg = { fg = '#D8DEE9' } -- nord4
-          highlights.UfoCursorFoldedLine = { fg = '#88C0D0', bg = '#616E88', bold = true } -- nord8 on light gray
+          highlights.Folded = { fg = colors.snow_storm.origin, bg = colors.polar_night.brightest }
+          highlights.FoldColumn = { fg = colors.polar_night.brightest, bg = 'NONE' }
+          highlights.UfoFoldedBg = { bg = colors.polar_night.brightest }
+          highlights.UfoFoldedFg = { fg = colors.snow_storm.origin }
+          highlights.UfoCursorFoldedLine = { fg = colors.frost.ice, bg = colors.polar_night.light, bold = true }
+
+          -- ErrorMsg is what Snacks uses for error notifications
+          highlights.ErrorMsg = { fg = colors.aurora.red, bg = 'NONE', bold = true, italic = true }
+
+          -- Yank highlight (similar to catppuccin peach)
+          highlights.YankHighlight = { bg = colors.aurora.orange, fg = colors.polar_night.origin }
         end,
       }
     end,
