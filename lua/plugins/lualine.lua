@@ -64,6 +64,7 @@ return {
           end,
           padding = { left = 1, right = 1 },
         },
+        separator(),
       },
       lualine_b = {
         {

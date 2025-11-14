@@ -20,6 +20,38 @@ return {
       -- Autopairs - automatically insert closing brackets, quotes, etc.
       require('mini.pairs').setup()
 
+      -- Active indent scope visualization - shows only current scope
+      local indentscope = require 'mini.indentscope'
+      indentscope.setup {
+        symbol = '│',
+        options = {
+          try_as_border = true,
+        },
+        draw = {
+          delay = 50,
+          -- Per-step animation: each line animates in ~10ms, so animation scales with scope size
+          animation = indentscope.gen_animation.linear { easing = 'out', duration = 2, unit = 'step' },
+        },
+      }
+
+      -- Disable immediately for special buffers (before first render)
+      vim.api.nvim_create_autocmd({ 'BufNew', 'BufReadPre', 'BufEnter' }, {
+        callback = function()
+          local bt = vim.bo.buftype
+          local ft = vim.bo.filetype
+          if bt ~= '' or ft == 'dashboard' or ft == 'snacks_dashboard' or ft == 'sidekick' or ft == 'lazy' or ft == 'mason' or ft == 'aerial' then
+            vim.b.miniindentscope_disable = true
+          end
+        end,
+      })
+
+      -- Toggle mini.indentscope with <leader>ug
+      vim.keymap.set('n', '<leader>ug', function()
+        vim.g.miniindentscope_disable = not vim.g.miniindentscope_disable
+        local state = vim.g.miniindentscope_disable and 'disabled' or 'enabled'
+        vim.notify('Indent Scope ' .. state, vim.log.levels.INFO)
+      end, { desc = 'Toggle Indent Scope' })
+      --
       -- File icons (replaces nvim-web-devicons)
       local icons = require 'mini.icons'
       icons.setup {

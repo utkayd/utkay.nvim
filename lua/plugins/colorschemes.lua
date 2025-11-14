@@ -65,6 +65,9 @@ return {
             UfoFoldedBg = { bg = colors.surface0 },
             UfoFoldedFg = { fg = colors.overlay2 },
             UfoCursorFoldedLine = { fg = colors.text, bg = colors.surface1, style = { 'bold' } },
+
+            -- Mini.indentscope highlight
+            MiniIndentscopeSymbol = { fg = colors.red },
           }
         end,
       }
