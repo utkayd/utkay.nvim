@@ -23,8 +23,6 @@ return {
           highlights.FidgetTitle = { fg = colors.blue, bg = 'NONE', bold = true }
           highlights.FidgetNormal = { bg = 'NONE' }
           highlights.FidgetBorder = { fg = colors.blue, bg = 'NONE' }
-
-          highlights.YankHighlight = { bg = colors.orange, fg = colors.gray }
         end,
       }
     end,
