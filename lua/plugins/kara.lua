@@ -6,7 +6,7 @@ return {
       require('kara').setup {
         on_highlights = function(highlights, colors)
           -- Override backgrounds to be transparent
-          highlights.Normal = { bg = 'NONE' }
+          highlights.Normal = { fg = colors.fg, bg = 'NONE' }
           highlights.NormalNC = { bg = 'NONE' }
           highlights.NormalFloat = { bg = 'NONE' }
           highlights.FloatBorder = { bg = 'NONE' }
@@ -23,6 +23,9 @@ return {
           highlights.FidgetTitle = { fg = colors.blue, bg = 'NONE', bold = true }
           highlights.FidgetNormal = { bg = 'NONE' }
           highlights.FidgetBorder = { fg = colors.blue, bg = 'NONE' }
+
+          -- Lazygit bright text (use a brighter color than default Normal)
+          highlights.LazyGitText = { fg = '#ffffff' }  -- Pure white for lazygit text
         end,
       }
     end,

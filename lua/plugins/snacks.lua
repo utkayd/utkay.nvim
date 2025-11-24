@@ -17,7 +17,15 @@ return {
     lazygit = {
       configure = true,
       theme = {
-        [241] = { fg = 'Special' },
+        activeBorderColor = { fg = 'MatchParen', bold = true },
+        cherryPickedCommitBgColor = { fg = 'Identifier' },
+        cherryPickedCommitFgColor = { fg = 'Function' },
+        defaultFgColor = { fg = 'LazyGitText' },  -- Custom bright white text
+        inactiveBorderColor = { fg = 'FloatBorder' },
+        optionsTextColor = { fg = 'Function' },
+        searchingActiveBorderColor = { fg = 'MatchParen', bold = true },
+        selectedLineBgColor = { bg = 'Visual' },
+        unstagedChangesColor = { fg = 'DiagnosticError' },
       },
       win = {
         border = 'rounded',
@@ -46,7 +54,7 @@ return {
     dim = { enabled = true },
     explorer = { enabled = true },
     scope = { enabled = false },
-    indent = { enabled = false },  -- Disable snacks indent, use mini.indentscope instead
+    indent = { enabled = false }, -- Disable snacks indent, use mini.indentscope instead
     input = { enabled = true },
     notifier = {
       enabled = true,

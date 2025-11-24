@@ -74,7 +74,7 @@ return {
             bg = 'NONE',
           },
           buffer_selected = {
-            fg = colors.blue_fg, -- Use blue color (Function highlight) for selected buffer
+            fg = colors.normal_fg, -- Use blue color (Function highlight) for selected buffer
             bg = 'NONE',
             bold = false,
             italic = false,

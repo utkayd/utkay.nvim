@@ -4,6 +4,7 @@ return {
     config = function()
       -- Better Around/Inside textobjects
       --
+      require('mini.cursorword').setup()
       -- Examples:
       --  - va)  - [V]isually select [A]round [)]paren
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote

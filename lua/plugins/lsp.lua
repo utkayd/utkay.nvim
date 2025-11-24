@@ -76,11 +76,14 @@ return {
       require('lspconfig.ui.windows').default_options.border = 'rounded'
 
       local servers = {
-        buf_ls = {
-          filetypes = {
-            'proto',
-          },
+        pbls = {
+          filetypes = { 'proto' },
         },
+        -- buf_ls = {
+        --   filetypes = {
+        --     'proto',
+        --   },
+        -- },
         bashls = {},
         gopls = {},
         lua_ls = {
