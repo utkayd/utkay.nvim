@@ -2,6 +2,8 @@ return {
   { -- Collection of various small independent plugins/modules
     'nvim-mini/mini.nvim',
     config = function()
+      -- Mini Move
+      require('mini.move').setup()
       -- Better Around/Inside textobjects
       --
       require('mini.cursorword').setup()

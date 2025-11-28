@@ -46,11 +46,6 @@ vim.keymap.set('n', 'vig', function()
 end, { desc = 'Select All Text' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<Cr>', { desc = 'Open Lazy View' })
 
-vim.keymap.set('n', '<A-j>', '<cmd>m .+1<CR>==', { silent = true, desc = 'Move line down' })
-vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==', { silent = true, desc = 'Move line up' })
-vim.keymap.set('v', '<A-j>', "<cmd>m '>+1<CR>gv=gv", { silent = true, desc = 'Move selection down' })
-vim.keymap.set('v', '<A-k>', "<cmd>m '<-2<CR>gv=gv", { silent = true, desc = 'Move selection up' })
-
 vim.keymap.set('n', '@', function()
   local count = vim.v.count1
   local char = vim.fn.getcharstr()
