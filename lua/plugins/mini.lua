@@ -2,6 +2,8 @@ return {
   { -- Collection of various small independent plugins/modules
     'nvim-mini/mini.nvim',
     config = function()
+      -- SplitJoin
+      require('mini.splitjoin').setup()
       -- Mini Move
       require('mini.move').setup()
       -- Better Around/Inside textobjects
