@@ -579,15 +579,43 @@ return {
     {
       '<c-/>',
       function()
-        Snacks.terminal()
+        local term = Snacks.terminal.get()
+        if term and term:buf_valid() then
+          if vim.api.nvim_get_current_buf() == term.buf then
+            -- If we're in the terminal, hide it
+            term:hide()
+          elseif term:win_valid() then
+            -- Terminal is visible but we're not in it, focus it
+            term:focus()
+          else
+            -- Terminal exists but is hidden, show it
+            term:show()
+          end
+        else
+          -- Terminal doesn't exist, create it
+          Snacks.terminal.toggle()
+        end
       end,
+      mode = { 'n', 'x', 'i', 't' },
       desc = 'Toggle Terminal',
     },
     {
       '<c-_>',
       function()
-        Snacks.terminal()
+        local term = Snacks.terminal.get()
+        if term and term:buf_valid() then
+          if vim.api.nvim_get_current_buf() == term.buf then
+            term:hide()
+          elseif term:win_valid() then
+            term:focus()
+          else
+            term:show()
+          end
+        else
+          Snacks.terminal.toggle()
+        end
       end,
+      mode = { 'n', 'x', 'i', 't' },
       desc = 'which_key_ignore',
     },
     {
