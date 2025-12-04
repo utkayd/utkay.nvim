@@ -20,7 +20,7 @@ return {
         activeBorderColor = { fg = 'MatchParen', bold = true },
         cherryPickedCommitBgColor = { fg = 'Identifier' },
         cherryPickedCommitFgColor = { fg = 'Function' },
-        defaultFgColor = { fg = 'LazyGitText' },  -- Custom bright white text
+        defaultFgColor = { fg = 'LazyGitText' }, -- Custom bright white text
         inactiveBorderColor = { fg = 'FloatBorder' },
         optionsTextColor = { fg = 'Function' },
         searchingActiveBorderColor = { fg = 'MatchParen', bold = true },
@@ -537,7 +537,7 @@ return {
       function()
         Snacks.bufdelete.other()
       end,
-      desc = 'Delete Buffer',
+      desc = 'Delete All Buffer Except Current',
     },
     {
       '<leader>cR',
@@ -568,6 +568,45 @@ return {
         Snacks.lazygit()
       end,
       desc = 'Lazygit',
+    },
+    {
+      '<leader>kk',
+      function()
+        Snacks.terminal.toggle('k9s', {
+          win = {
+            border = 'rounded',
+            title = ' K9S ',
+            title_pos = 'center',
+          },
+        })
+      end,
+      desc = 'K9S',
+    },
+    {
+      '<leader>sql',
+      function()
+        Snacks.terminal.toggle('lazysql', {
+          win = {
+            border = 'rounded',
+            title = ' LazySql ',
+            title_pos = 'center',
+          },
+        })
+      end,
+      desc = 'LazySql',
+    },
+    {
+      '<leader>pp',
+      function()
+        Snacks.terminal.toggle('posting', {
+          win = {
+            border = 'rounded',
+            title = ' Posting ',
+            title_pos = 'center',
+          },
+        })
+      end,
+      desc = 'Posting (HTTP Client)',
     },
     {
       '<leader>un',
